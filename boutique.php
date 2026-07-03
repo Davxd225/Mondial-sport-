@@ -1,3 +1,10 @@
+﻿<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'functions.php';
+$produits = getProduits();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -31,7 +38,7 @@
         <nav class="navbar container">
 
             <!-- LOGO -->
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 MONDIAL <span>SPORT</span>
             </a>
 
@@ -41,13 +48,13 @@
                 <ul class="nav-list">
 
                     <li>
-                        <a href="index.html" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             Accueil
                         </a>
                     </li>
 
                     <li>
-                        <a href="nos-boutiques.html" class="nav-link active">
+                        <a href="nos-boutiques.php" class="nav-link active">
                             Nos boutiques
                         </a>
                     </li>
@@ -61,7 +68,11 @@
             <!-- ACTIONS -->
             <div class="nav-actions">
 
-                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport 👋 Je voudrais plus d'informations sur vos produits.">
+                <a href="admis.php" class="admin-btn">
+                    Admin
+                </a>
+
+                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport Ã°Å¸â€˜â€¹ Je voudrais plus d'informations sur vos produits.">
                     <i class="ri-whatsapp-line"></i>
                     WhatsApp
                 </a>
@@ -95,7 +106,7 @@
             </h1>
 
             <p class="shop-description">
-                Découvrez les meilleurs équipements sportifs premium disponibles dans nos boutiques au Sénégal.
+                DÃƒÂ©couvrez les meilleurs ÃƒÂ©quipements sportifs premium disponibles dans nos boutiques au SÃƒÂ©nÃƒÂ©gal.
             </p>
 
         </div>
@@ -130,7 +141,7 @@
                 <select id="category-filter">
 
                     <option value="all">
-                        Toutes les catégories
+                        Toutes les catÃƒÂ©gories
                     </option>
 
                     <option value="Chaussures">
@@ -149,6 +160,10 @@
                         Accessoires
                     </option>
 
+                    <option value="Survetements">
+                        Survetements
+                    </option>
+
                 </select>
 
                 <!-- SORT -->
@@ -163,7 +178,7 @@
                     </option>
 
                     <option value="high">
-                        Prix décroissant
+                        Prix dÃƒÂ©croissant
                     </option>
 
                 </select>
@@ -213,7 +228,7 @@
                     </h2>
 
                     <p>
-                        Votre référence sport premium au Sénégal.
+                        Votre rÃƒÂ©fÃƒÂ©rence sport premium au SÃƒÂ©nÃƒÂ©gal.
                     </p>
 
                 </div>
@@ -222,11 +237,11 @@
 
                     <h3>Navigation</h3>
 
-                    <a href="index.html">
+                    <a href="index.php">
                         Accueil
                     </a>
 
-                    <a href="boutique.html">
+                    <a href="boutique.php">
                         Boutique
                     </a>
 
@@ -247,7 +262,7 @@
             <div class="footer-bottom">
 
                 <p>
-                    © 2026 Mondial Sport — Tous droits réservés
+                    Ã‚Â© 2026 Mondial Sport Ã¢â‚¬â€ Tous droits rÃƒÂ©servÃƒÂ©s
                 </p>
 
             </div>
@@ -257,9 +272,11 @@
     </footer>
 
     <!-- JS -->
+    <script src="js/api-service.js"></script>
     <script src="js/products.js"></script>
     <script src="js/whatsapp.js"></script>
     <script src="js/app.js"></script>
 
 </body>
 </html>
+

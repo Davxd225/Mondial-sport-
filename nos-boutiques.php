@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 
@@ -31,7 +31,7 @@
         <nav class="navbar container">
 
             <!-- LOGO -->
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 MONDIAL <span>SPORT</span>
             </a>
 
@@ -41,13 +41,13 @@
                 <ul class="nav-list">
 
                     <li>
-                        <a href="index.html" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             Accueil
                         </a>
                     </li>
 
                     <li>
-                        <a href="boutique.html" class="nav-link">
+                        <a href="boutique.php" class="nav-link">
                             produits
                         </a>
                     </li>
@@ -60,6 +60,10 @@
 
             <!-- ACTIONS -->
             <div class="nav-actions">
+
+                <a href="admis.php" class="admin-btn">
+                    Admin
+                </a>
 
                 <a href="#" class="whatsapp-btn">
                     <i class="ri-whatsapp-line"></i>
@@ -87,7 +91,7 @@
         <div class="stores-hero-content container">
 
             <p class="stores-subtitle">
-                Mondial Sport Sénégal
+                Mondial Sport SÃ©nÃ©gal
             </p>
 
             <h1 class="stores-title">
@@ -95,7 +99,7 @@
             </h1>
 
             <p class="stores-description">
-                Retrouvez nos 3 boutiques physiques au Sénégal et venez découvrir nos collections premium.
+                Retrouvez nos 3 boutiques physiques au SÃ©nÃ©gal et venez dÃ©couvrir nos collections premium.
             </p>
 
         </div>
@@ -127,21 +131,21 @@
                         </h2>
 
                         <p>
-                            📍 Dakar Plateau, Sénégal
+                            ðŸ“ Dakar Plateau, SÃ©nÃ©gal
                         </p>
 
                         <p>
-                            📞 +221 77 000 00 00
+                            ðŸ“ž +221 77 000 00 00
                         </p>
 
                         <p>
-                            🕒 08h00 — 20h00
+                            ðŸ•’ 08h00 â€” 20h00
                         </p>
 
                         <div class="store-buttons">
 
                             <a href="#" class="store-map-btn">
-                                Voir l’itinéraire
+                                Voir lâ€™itinÃ©raire
                             </a>
 
                             <a href="#" class="store-whatsapp-btn">
@@ -184,21 +188,21 @@
                         </h2>
 
                         <p>
-                            📍 Parcelles Assainies, Sénégal
+                            ðŸ“ Parcelles Assainies, SÃ©nÃ©gal
                         </p>
 
                         <p>
-                            📞 +221 77 000 00 00
+                            ðŸ“ž +221 77 000 00 00
                         </p>
 
                         <p>
-                            🕒 08h00 — 20h00
+                            ðŸ•’ 08h00 â€” 20h00
                         </p>
 
                         <div class="store-buttons">
 
                             <a href="#" class="store-map-btn">
-                                Voir l’itinéraire
+                                Voir lâ€™itinÃ©raire
                             </a>
 
                             <a href="#" class="store-whatsapp-btn">
@@ -237,25 +241,25 @@
                         </span>
 
                         <h2>
-                            Mondial Sport Thiès
+                            Mondial Sport ThiÃ¨s
                         </h2>
 
                         <p>
-                            📍 Thiès Centre Ville
+                            ðŸ“ ThiÃ¨s Centre Ville
                         </p>
 
                         <p>
-                            📞 +221 77 000 00 00
+                            ðŸ“ž +221 77 000 00 00
                         </p>
 
                         <p>
-                            🕒 08h00 — 20h00
+                            ðŸ•’ 08h00 â€” 20h00
                         </p>
 
                         <div class="store-buttons">
 
                             <a href="#" class="store-map-btn">
-                                Voir l’itinéraire
+                                Voir lâ€™itinÃ©raire
                             </a>
 
                             <a href="#" class="store-whatsapp-btn">
@@ -300,7 +304,7 @@
             <div class="footer-bottom">
 
                 <p>
-                    © 2026 Mondial Sport — Tous droits réservés
+                    Â© 2026 Mondial Sport â€” Tous droits rÃ©servÃ©s
                 </p>
 
             </div>
@@ -315,3 +319,4 @@
 
 </body>
 </html>
+

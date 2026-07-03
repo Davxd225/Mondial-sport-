@@ -21,6 +21,10 @@ body{
     overflow-x:hidden;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* ========================= */
 /* VARIABLES */
 /* ========================= */
@@ -168,6 +172,21 @@ body{
 }
 
 .whatsapp-btn:hover{
+    transform:translateY(-3px);
+}
+
+.admin-btn{
+    background:transparent;
+    color:white;
+    border:1px solid rgba(255,255,255,0.18);
+    padding:12px 20px;
+    border-radius:50px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.admin-btn:hover{
+    background:rgba(255,255,255,0.08);
     transform:translateY(-3px);
 }
 
