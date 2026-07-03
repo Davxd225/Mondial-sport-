@@ -1,3 +1,10 @@
+﻿<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'functions.php';
+$produits = getProduits();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -55,19 +62,19 @@
 
                     <li>
                         <a href="#categories" class="nav-link">
-                            Catégories
+                            CatÃƒÂ©gories
                         </a>
                     </li>
 
                     <li>
-                        <a href="nos-boutiques.html" class="nav-link">
+                        <a href="nos-boutiques.php" class="nav-link">
                             Nos Boutiques
                         </a>
                     </li>
 
 
                     <li>
-                        <a href="boutique.html" class="nav-link">
+                        <a href="boutique.php" class="nav-link">
                             Nos produits
                         </a>
                     </li>
@@ -79,7 +86,11 @@
             <!-- ACTIONS -->
             <div class="nav-actions">
 
-                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport 👋 Je voudrais plus d'informations sur vos produits.">
+                <a href="admis.php" class="admin-btn">
+                    Admin
+                </a>
+
+                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport Ã°Å¸â€˜â€¹ Je voudrais plus d'informations sur vos produits.">
                     <i class="ri-whatsapp-line"></i>
                     WhatsApp
                 </a>
@@ -106,20 +117,20 @@
 
       
             <h1 class="hero-title">
-                Équipe-toi Comme Un Champion
+                Ãƒâ€°quipe-toi Comme Un Champion
             </h1>
 
             <p class="hero-description">
-                Chaussures, maillots, survêtements et accessoires sportifs premium disponibles dans nos 3 boutiques.
+                Chaussures, maillots, survÃƒÂªtements et accessoires sportifs premium disponibles dans nos 3 boutiques.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="boutique.html" class="primary-btn">
+                <a href="boutique.php" class="primary-btn">
                     Voir les produits
                 </a>
 
-                <a href="#" class="whatsapp-link secondary-btn" data-whatsapp-text="Bonjour Mondial Sport 👋 Je souhaite commander un produit.">
+                <a href="#" class="whatsapp-link secondary-btn" data-whatsapp-text="Bonjour Mondial Sport Ã°Å¸â€˜â€¹ Je souhaite commander un produit.">
                     Commander sur WhatsApp
                 </a>
 
@@ -140,7 +151,7 @@
             <div class="section-header">
 
                 <p class="section-subtitle">
-                    Catégories
+                    CatÃƒÂ©gories
                 </p>
 
                 <h2 class="section-title">
@@ -151,34 +162,34 @@
 
             <div class="categories-grid">
 
-                <a href="chaussures.html" class="category-card">
+                <a href="chaussures.php" class="category-card">
     <i class="ri-football-line"></i>
     <h3>Chaussures</h3>
 </a>
 
-                <a href="maillots.html" class="category-card">
+                <a href="maillots.php" class="category-card">
                     <i class="ri-shirt-line"></i>
                     <h3>Maillots</h3>
                 </a>
 
-                <a href="ballons.html" class="category-card">
+                <a href="ballons.php" class="category-card">
                     <i class="ri-basketball-line"></i>
                     <h3>Ballons</h3>
                 </a>
 
-                <a href="sac.html" class="category-card">
+                <a href="sac.php" class="category-card">
                     <i class="ri-briefcase-4-line"></i>
                     <h3>Sacs Sport</h3>
                 </a>
 
-                <a href="accessoires.html" class="category-card">
+                <a href="accessoires.php" class="category-card">
                     <i class="ri-boxing-line"></i>
                     <h3>Accessoires</h3>
                 </a>
 
-                <a href="survetements.html" class="category-card">
+                <a href="survetements.php" class="category-card">
                     <i class="ri-run-line"></i>
-                    <h3>Survêtements</h3>
+                    <h3>SurvÃƒÂªtements</h3>
                 </a>
 
             </div>
@@ -222,7 +233,7 @@
     <select id="category-filter">
 
         <option value="all">
-            Toutes les catégories
+            Toutes les catÃƒÂ©gories
         </option>
 
         <option value="Chaussures">
@@ -241,6 +252,10 @@
             Accessoires
         </option>
 
+        <option value="Survetements">
+            Survetements
+        </option>
+
     </select>
 
     <!-- SORT -->
@@ -255,27 +270,42 @@
         </option>
 
         <option value="high">
-            Prix décroissant
+            Prix dÃƒÂ©croissant
         </option>
 
     </select>
 
 </div>
             <div class="products-grid" id="products-container">
-
-</div>
-
-                <!-- PRODUIT -->
-                <div class="product-card">
-
-                   
-
-                </div>
-
-                <!-- PRODUIT -->
-                <div class="product-card">
-
-                </div>
+                <?php
+                    foreach ($produits as $product) {
+                        echo '
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="'.$product['image'].'" alt="'.$product['nom'].'">
+                            </div>
+                            <div class="product-content">
+                                <span class="product-category">
+                                    '.$product['categorie'].'
+                                </span>
+                                <h3 class="product-title">
+                                    '.$product['nom'].'
+                                </h3>
+                                <p class="product-price">
+                                    '.number_format($product['prix'], 0, ',', ' ').' FCFA
+                                </p>
+                                <div class="product-stock">
+                                    Stock : '.$product['stock'].'
+                                </div>
+                                <button class="product-btn" onclick="orderOnWhatsApp('.$product['id'].')">
+                                    Commander WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                        ';
+                    }
+                ?>
+            </div>
 
             </div>
 
@@ -298,7 +328,7 @@
                 </p>
 
                 <h2 class="section-title">
-                    Retrouvez-nous au Sénégal
+                    Retrouvez-nous au SÃƒÂ©nÃƒÂ©gal
                 </h2>
 
             </div>
@@ -316,7 +346,7 @@
                     <p>08h00 - 20h00</p>
 
                     <a href="#" class="store-btn">
-                        Voir l’itinéraire
+                        Voir lÃ¢â‚¬â„¢itinÃƒÂ©raire
                     </a>
 
                 </div>
@@ -332,14 +362,14 @@
                     <p>08h00 - 20h00</p>
 
                     <a href="#" class="store-btn">
-                        Voir l’itinéraire
+                        Voir lÃ¢â‚¬â„¢itinÃƒÂ©raire
                     </a>
 
                 </div>
 
                 <div class="store-card">
 
-                    <h3>Boutique Thiès</h3>
+                    <h3>Boutique ThiÃƒÂ¨s</h3>
 
                     <p>Centre Ville</p>
 
@@ -348,7 +378,7 @@
                     <p>08h00 - 20h00</p>
 
                     <a href="#" class="store-btn">
-                        Voir l’itinéraire
+                        Voir lÃ¢â‚¬â„¢itinÃƒÂ©raire
                     </a>
 
                 </div>
@@ -376,7 +406,7 @@
                     </h2>
 
                     <p>
-                        Votre référence sport premium au Sénégal.
+                        Votre rÃƒÂ©fÃƒÂ©rence sport premium au SÃƒÂ©nÃƒÂ©gal.
                     </p>
 
                 </div>
@@ -404,7 +434,7 @@
 
             <div class="footer-bottom">
                 <p>
-                    © 2026 Mondial Sport — Tous droits réservés
+                    Ã‚Â© 2026 Mondial Sport Ã¢â‚¬â€ Tous droits rÃƒÂ©servÃƒÂ©s
                 </p>
             </div>
 
@@ -413,9 +443,11 @@
     </footer>
 
     <!-- JS -->
+    <script src="js/api-service.js"></script>
     <script src="js/products.js"></script>
-<script src="js/whatsapp.js"></script>
-<script src="js/app.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 </html>
+

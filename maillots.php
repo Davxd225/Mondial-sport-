@@ -1,3 +1,10 @@
+﻿<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once 'functions.php';
+$produits = getProduitsByCategory('Maillot');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Accessoires | Mondial Sport</title>
+    <title>Maillots | Mondial Sport</title>
 
     <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +35,7 @@
 
         <nav class="navbar container">
 
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 MONDIAL <span>SPORT</span>
             </a>
 
@@ -37,13 +44,13 @@
                 <ul class="nav-list">
 
                     <li>
-                        <a href="index.html" class="nav-link">
+                        <a href="index.php" class="nav-link">
                             Accueil
                         </a>
                     </li>
 
                     <li>
-                        <a href="boutique.html" class="nav-link">
+                        <a href="boutique.php" class="nav-link">
                             Boutique
                         </a>
                     </li>
@@ -54,7 +61,11 @@
 
             <div class="nav-actions">
 
-                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport 👋 Je voudrais plus d'informations sur vos produits.">
+                <a href="admis.php" class="admin-btn">
+                    Admin
+                </a>
+
+                <a href="#" class="whatsapp-link whatsapp-btn" data-whatsapp-text="Bonjour Mondial Sport ðŸ‘‹ Je voudrais plus d'informations sur vos produits.">
                     <i class="ri-whatsapp-line"></i>
                     WhatsApp
                 </a>
@@ -82,11 +93,11 @@
             </p>
 
             <h1 class="category-title">
-               Accessoires
+                Maillots
             </h1>
 
             <p class="category-description">
-                Découvrez notre sélection d'accessoires premium disponibles dans nos boutiques Mondial Sport.
+                DÃ©couvrez notre sÃ©lection de nos maillots premium disponibles dans nos boutiques Mondial Sport.
             </p>
 
         </div>
@@ -116,7 +127,7 @@
             <div class="footer-bottom">
 
                 <p>
-                    © 2026 Mondial Sport
+                    Â© 2026 Mondial Sport
                 </p>
 
             </div>
@@ -127,6 +138,7 @@
 
     <!-- JS -->
 
+    <script src="js/api-service.js"></script>
     <script src="js/products.js"></script>
     <script src="js/whatsapp.js"></script>
     <script src="js/category.js"></script>
@@ -134,3 +146,5 @@
 
 </body>
 </html>
+
+
